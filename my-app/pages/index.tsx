@@ -5,6 +5,7 @@ import { useRef, useEffect, useState } from "react";
 import Core from "web3modal";
 import { Contract, providers, utils } from "ethers";
 import { NFT_CONTRACT_ABI, NFT_CONTRACT_ADDRESS } from "../constants";
+import { useSnackbar } from "notistack";
 
 const Home: NextPage = () => {
   const [isOwner, setIsOwner] = useState<boolean>(false);
@@ -14,6 +15,8 @@ const Home: NextPage = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [numTokensMinted, setNumTokensMinted] = useState<string>("");
   const web3ModalRef = useRef<Core>();
+
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
 
   const getNumMintedTokens = async () => {
     try {
@@ -33,6 +36,10 @@ const Home: NextPage = () => {
   const presaleMint = async () => {
     try {
       setLoading(true);
+      const key = enqueueSnackbar("Minting...", {
+        variant: "info",
+        persist: true,
+      });
       const signer = await getProviderOrSigner(true);
       const nftContract = new Contract(
         NFT_CONTRACT_ADDRESS,
@@ -44,9 +51,12 @@ const Home: NextPage = () => {
       });
       await tx.wait();
       setLoading(false);
-      window.alert("Sucessfully Minted!");
+      closeSnackbar(key);
+      enqueueSnackbar("Sucessfully minted!", { variant: "success" });
     } catch (error) {
       console.error(error);
+      closeSnackbar();
+      enqueueSnackbar("Error minting!", { variant: "error" });
     }
     setLoading(false);
   };
@@ -54,6 +64,10 @@ const Home: NextPage = () => {
   const publicMint = async () => {
     try {
       setLoading(true);
+      const key = enqueueSnackbar("Minting...", {
+        variant: "info",
+        persist: true,
+      });
       const signer = await getProviderOrSigner(true);
       const nftContract = new Contract(
         NFT_CONTRACT_ADDRESS,
@@ -65,9 +79,12 @@ const Home: NextPage = () => {
       });
       await tx.wait();
       setLoading(false);
-      window.alert("Sucessfully Minted!");
+      closeSnackbar(key);
+      enqueueSnackbar("Sucessfully minted!", { variant: "success" });
     } catch (error) {
       console.error(error);
+      closeSnackbar();
+      enqueueSnackbar("Error minting!", { variant: "error" });
     }
     setLoading(false);
   };
@@ -87,6 +104,7 @@ const Home: NextPage = () => {
 
       if (owner.toLowerCase() === (await userAddress).toLowerCase()) {
         setIsOwner(true);
+        enqueueSnackbar("You are the owner", { variant: "info" });
       }
     } catch (error) {
       console.error(error);
@@ -96,6 +114,10 @@ const Home: NextPage = () => {
   const startPresale = async () => {
     try {
       setLoading(true);
+      const key = enqueueSnackbar("Starting Presale...", {
+        variant: "info",
+        persist: true,
+      });
       const signer = await getProviderOrSigner(true);
       const nftContract = new Contract(
         NFT_CONTRACT_ADDRESS,
@@ -105,8 +127,12 @@ const Home: NextPage = () => {
       const txn = await nftContract.startPresale();
       await txn.wait();
       setPresaleStarted(true);
+      closeSnackbar(key);
+      enqueueSnackbar("Sucessfully minted!", { variant: "success" });
     } catch (error) {
       console.error(error);
+      closeSnackbar();
+      enqueueSnackbar("Error starting Presale", { variant: "error" });
     }
     setLoading(false);
   };
@@ -152,8 +178,10 @@ const Home: NextPage = () => {
     try {
       await getProviderOrSigner();
       setWalletConnected(true);
+      enqueueSnackbar("Wallet Connected Successfully", { variant: "success" });
     } catch (error) {
       console.error(error);
+      enqueueSnackbar("Error with wallet connection", { variant: "error" });
     }
   };
 
@@ -256,7 +284,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="navbar bg-base-300 shadow-md">
+      <div className="fixed navbar bg-base-300 shadow-md">
         <a className="btn btn-ghost normal-case text-xl basis-2/3 justify-start">
           Meme NFT Collection
         </a>
