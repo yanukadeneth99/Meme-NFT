@@ -295,6 +295,11 @@ const Home: NextPage = () => {
         <h1 className="text-5xl font-medium text-gray-300 text-center">
           {numTokensMinted}/20 minted
         </h1>
+        {isOwner && (
+          <a className="btn" onClick={startPresale}>
+            Restart Presale
+          </a>
+        )}
       </div>
     </>
   );
