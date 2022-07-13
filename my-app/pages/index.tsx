@@ -83,7 +83,6 @@ const Home: NextPage = () => {
         signer
       );
       const owner = await nftContract.owner();
-      console.log(owner);
       const userAddress = await signer?.getAddress();
 
       if (owner.toLowerCase() === (await userAddress).toLowerCase()) {
@@ -141,8 +140,8 @@ const Home: NextPage = () => {
         provider
       );
       const isPresaleStarted = await nftContract.presaleStarted();
-      return isPresaleStarted;
       setPresaleStarted(isPresaleStarted);
+      return isPresaleStarted;
     } catch (error) {
       console.error(error);
       return false;
@@ -221,25 +220,31 @@ const Home: NextPage = () => {
       );
     }
     if (loading) {
-      <a className="btn">Loading...</a>;
+      return <a className="btn">Loading...</a>;
     }
     if (isOwner && !presaleStarted) {
-      <a className="btn" onClick={startPresale}>
-        Start Presale
-      </a>;
+      return (
+        <a className="btn" onClick={startPresale}>
+          Start Presale
+        </a>
+      );
     }
     if (!presaleStarted) {
-      <a className="btn">Not Yet</a>;
+      return <a className="btn">Not Yet</a>;
     }
     if (presaleStarted && !presaleEnded) {
-      <a className="btn" onClick={presaleMint}>
-        Presale Mint
-      </a>;
+      return (
+        <a className="btn" onClick={presaleMint}>
+          Presale Mint
+        </a>
+      );
     }
     if (presaleEnded) {
-      <a className="btn" onClick={publicMint}>
-        Public Mint
-      </a>;
+      return (
+        <a className="btn" onClick={publicMint}>
+          Public Mint
+        </a>
+      );
     }
   }
 
