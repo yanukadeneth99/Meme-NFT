@@ -6,6 +6,7 @@
 
 ## Website/Contract
 
+- [OpenSea Collection](https://testnets.opensea.io/collection/meme-nft-col)
 - Website - [Vercel Host](https://meme-nft-dapp.vercel.app/) (Make sure to use Rinkeby Chain)
 - Deployed contract address (Rinkeby) - [0xdc21051f91E12Be362cE5f383d796BFCF810692e](https://rinkeby.etherscan.io/address/0xdc21051f91E12Be362cE5f383d796BFCF810692e)
 - Whitelist contract address (Rinkeby) - [0x858C0cD0A4e3c1bc1721C8C7710C29b6cF8A21FE](https://rinkeby.etherscan.io/address/0x858c0cd0a4e3c1bc1721c8c7710c29b6cf8a21fe)
