@@ -2,5 +2,4 @@
 export const WHITELIST_CONTRACT_ADDRESS =
   "0x858c0cd0a4e3c1bc1721c8c7710c29b6cf8a21fe";
 // URL for NFT Metadata
-export const METADATA_URL =
-  "https://meme-nft-dapp-gzzz75ska-yanukadeneth99.vercel.app/api/";
+export const METADATA_URL = "https://meme-nft-dapp.vercel.app/api/";

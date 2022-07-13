@@ -9,6 +9,7 @@ async function main() {
   );
 
   await memenft.deployed();
+  console.log("NFT Contract deployed", memenft.address);
 }
 
 main().catch((error) => {
