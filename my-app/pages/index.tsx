@@ -6,6 +6,7 @@ import Core from "web3modal";
 import { Contract, providers, utils } from "ethers";
 import { NFT_CONTRACT_ABI, NFT_CONTRACT_ADDRESS } from "../constants";
 import { useSnackbar } from "notistack";
+import BGImage from "../public/wallpaper.jpg";
 
 const Home: NextPage = () => {
   const [isOwner, setIsOwner] = useState<boolean>(false);
@@ -276,6 +277,27 @@ const Home: NextPage = () => {
     }
   }
 
+  const withdrawCash = async () => {
+    try {
+      setLoading(true);
+      const signer = await getProviderOrSigner(true);
+      const NftContract = await new Contract(
+        NFT_CONTRACT_ADDRESS,
+        NFT_CONTRACT_ABI,
+        signer
+      );
+      const tx = await NftContract.withdraw();
+      tx.wait();
+      window.alert("Withdrew all");
+      enqueueSnackbar("Sucessfully withdrew", { variant: "success" });
+      setLoading(false);
+    } catch (error) {
+      console.error(error);
+      setLoading(false);
+      enqueueSnackbar(`Error withdrawing : ${error}`, { variant: "error" });
+    }
+  };
+
   return (
     <>
       <Head>
@@ -291,15 +313,25 @@ const Home: NextPage = () => {
         <div className="navbar-end basis-1/3 pr-12">{renderBody()}</div>
       </div>
 
-      <div className="flex flex-col justify-center items-center w-screen h-screen">
-        <h1 className="text-5xl font-medium text-gray-300 text-center">
-          {numTokensMinted}/20 minted
-        </h1>
-        {isOwner && (
-          <a className="btn" onClick={startPresale}>
-            Restart Presale
-          </a>
-        )}
+      <div
+        className="flex flex-col justify-center items-center w-screen h-screen"
+        style={{ background: `url(${BGImage.src})`, backgroundSize: "cover" }}
+      >
+        <div className="backdrop-blur-xl border-2 border-gray-200/10 shadow-xl p-20 space-y-5">
+          <h1 className="text-5xl font-medium text-gray-800 text-center">
+            {numTokensMinted}/20 minted
+          </h1>
+          {isOwner && (
+            <div className="flex flex-row space-x-3 justify-center items-center pt-6">
+              <a className="btn" onClick={startPresale}>
+                Restart Presale
+              </a>
+              <a className="btn" onClick={withdrawCash}>
+                Withdraw Cash
+              </a>
+            </div>
+          )}
+        </div>
       </div>
     </>
   );
