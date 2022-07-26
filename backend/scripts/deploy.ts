@@ -2,27 +2,29 @@ import { ethers } from "hardhat";
 import hre from "hardhat";
 
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const ONE_YEAR_IN_SECS = 365 * 24 * 60 * 60;
-  const unlockTime = currentTimestampInSeconds + ONE_YEAR_IN_SECS;
+  //* Deployment Process
+  const MemeNFT = await ethers.getContractFactory("MemeNFT");
+  const memenft: any = await MemeNFT.deploy(
+    20,
+    "0xb1E540a22F341c6Aba9Dc4e060Aa86A56bBABd19",
+    "ipfs://QmYE79qUtN8wngz81Mn2XgTA2yTNUaxE4yhuuM624cCfb5/"
+  );
 
-  const lockedAmount = ethers.utils.parseEther("1");
+  await memenft.deployed();
 
-  //* Deployement Process
-  const Lock = await ethers.getContractFactory("Lock");
-  const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
-
-  await lock.deployed();
-
-  console.log("Lock with 1 ETH deployed to:", lock.address);
+  console.log("Deployed to : ", memenft.address);
 
   //* Verfication Process
   console.log("Sleeping...");
   await sleep(50000);
 
   await hre.run("verify:verify", {
-    address: lock.address,
-    constructorArguments: [unlockTime],
+    address: memenft.address,
+    constructorArguments: [
+      20,
+      "0xb1E540a22F341c6Aba9Dc4e060Aa86A56bBABd19",
+      "ipfs://QmYE79qUtN8wngz81Mn2XgTA2yTNUaxE4yhuuM624cCfb5/",
+    ],
   });
 }
 
