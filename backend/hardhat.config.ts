@@ -1,11 +1,13 @@
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
+import "@nomicfoundation/hardhat-chai-matchers";
+import "@nomiclabs/hardhat-ethers";
 import * as dotenv from "dotenv";
 dotenv.config();
 
 const config: HardhatUserConfig = {
   solidity: "0.8.9",
-  defaultNetwork: "localhost",
+  defaultNetwork: "mumbai",
   networks: {
     mumbai: {
       url: process.env.ALCHEMY_API_KEY_URL,

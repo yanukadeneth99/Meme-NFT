@@ -1,0 +1,25 @@
+{
+  "name": "Drake Meme",
+  "description": "These are Meme NFTs created as a project by Yanuka Deneth to be fun collectibles for non-commercial projects.",
+  "image": "ipfs://QmPKVei1MSZTU3oZqmsS9uQafQ4fga31TkQ6wZEiWw1hsV/5.png",
+  "external_link": "https://github.com/yanukadeneth99",
+  "properties": {
+    "type": "Meme",
+    "text_entries": {
+      "name": "Text Entries",
+      "value": 2,
+      "display_value": "2 Text Space Possibilities",
+      "class": "emphasis",
+      "css": {
+        "color": "#ffffff",
+        "font-weight": "bold",
+        "text-decoration": "underline"
+      }
+    },
+    "characters": {
+      "name": "Characters",
+      "value": ["Drake"],
+      "class": "emphasis"
+    }
+  }
+}

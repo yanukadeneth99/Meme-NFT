@@ -1,0 +1,25 @@
+{
+  "name": "Bad News Meme",
+  "description": "These are Meme NFTs created as a project by Yanuka Deneth to be fun collectibles for non-commercial projects.",
+  "image": "ipfs://QmPKVei1MSZTU3oZqmsS9uQafQ4fga31TkQ6wZEiWw1hsV/11.png",
+  "external_link": "https://github.com/yanukadeneth99",
+  "properties": {
+    "type": "Meme",
+    "text_entries": {
+      "name": "Text Entries",
+      "value": 4,
+      "display_value": "4 Text Space Possibilities",
+      "class": "emphasis",
+      "css": {
+        "color": "#ffffff",
+        "font-weight": "bold",
+        "text-decoration": "underline"
+      }
+    },
+    "characters": {
+      "name": "Characters",
+      "value": ["Guys"],
+      "class": "emphasis"
+    }
+  }
+}
