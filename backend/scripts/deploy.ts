@@ -14,7 +14,7 @@ async function main() {
 
   console.log("Deployed to : ", memenft.address);
 
-  //* Verfication Process
+  //* Verification Process
   console.log("Sleeping...");
   await sleep(50000);
 
