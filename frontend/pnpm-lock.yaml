@@ -21,11 +21,13 @@ specifiers:
   jest-environment-jsdom: ^28.1.3
   next: ^12.2.3
   next-seo: ^5.5.0
+  next-themes: ^0.2.0
   notistack: ^2.0.5
   postcss: ^8.4.14
   prettier: ^2.7.1
   react: ^18.2.0
   react-dom: ^18.2.0
+  react-icons: ^4.4.0
   tailwindcss: ^3.1.6
   typescript: ^4.7.4
   web3modal: ^1.9.8
@@ -35,9 +37,11 @@ dependencies:
   ethers: 5.6.9
   next: 12.2.3_qugu52izettqdqqm5qcjcltcia
   next-seo: 5.5.0_53oqlnqnxhbetdy4ljlkkvmoby
+  next-themes: 0.2.0_53oqlnqnxhbetdy4ljlkkvmoby
   notistack: 2.0.5_4qc6mx3lshs43w6j7fdk4efzle
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-icons: 4.4.0_react@18.2.0
   web3modal: 1.9.8_react-is@18.2.0
 
 devDependencies:
@@ -4263,6 +4267,18 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
+  /next-themes/0.2.0_53oqlnqnxhbetdy4ljlkkvmoby:
+    resolution: {integrity: sha512-myhpDL4vadBD9YDSHiewqvzorGzB03N84e+3LxCwHRlM/hiBOaW+UsKsQojQAzC7fdcJA0l2ppveXcYaVV+hxQ==}
+    peerDependencies:
+      next: '*'
+      react: '*'
+      react-dom: '*'
+    dependencies:
+      next: 12.2.3_qugu52izettqdqqm5qcjcltcia
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
   /next/12.2.3_qugu52izettqdqqm5qcjcltcia:
     resolution: {integrity: sha512-TA0tmSA6Dk6S6kfvCNbF7CWYW8468gZUxr/3/30z4KvAQbXnl2ASYZElVe7q/hBW/1F1ee0tSBlHa4/sn+ZIBw==}
     engines: {node: '>=12.22.0'}
@@ -4718,6 +4734,14 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+
+  /react-icons/4.4.0_react@18.2.0:
+    resolution: {integrity: sha512-fSbvHeVYo/B5/L4VhB7sBA1i2tS8MkT0Hb9t2H1AVPkwGfVHLJCqyr2Py9dKMxsyM63Eng1GkdZfbWj+Fmv8Rg==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}

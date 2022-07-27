@@ -23,7 +23,7 @@ contract MemeNFT is ERC721A, ERC721AQueryable, Ownable {
     string private _uri;
 
     /// @notice Holds the time the whitelist should end
-    uint256 endTimestamp;
+    uint256 public endTimestamp;
 
     /// @notice Price of one NFT
     uint256 public constant preSalePrice = 0.01 ether;
@@ -32,7 +32,7 @@ contract MemeNFT is ERC721A, ERC721AQueryable, Ownable {
     uint256 public constant pubSalePrice = 0.03 ether;
 
     /// @notice Holds the Whitelist Contract, only the `isWhitelisted()` function
-    IWhitelist whitelistContract;
+    IWhitelist private whitelistContract;
 
     /// @notice Modifier to make sure it's not a contract which calls
     modifier onlyEOA() {

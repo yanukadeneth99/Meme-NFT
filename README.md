@@ -9,13 +9,23 @@
 
 # Meme NFT DApp
 
-Project that contains some amazing Meme NFTs!
+Project that contains some amazing Meme NFTs! Written using Azuki's ERC721A on the Rinkeby Chain
+
+## Website
+
+![PreSale_Website](https://i.imgur.com/eFrGnMm.png)
+
+## Open Sea
+
+Link : [https://testnets.opensea.io/collection/memes-nft-collection](https://testnets.opensea.io/collection/memes-nft-collection)
+
+![Open_Sea](https://i.imgur.com/z6l9zPQ.png)
 
 ## Contract
 
-The contract is deployed to the Mumbai Testnet on address : [0x00b337Dfd776de7DC1053E314d14FEE9dFEaf330](https://mumbai.polygonscan.com/address/0x00b337Dfd776de7DC1053E314d14FEE9dFEaf330)
+The contract is deployed to the Rinkeby Testnet on address : [0x7A49bc7356E019e57199174c28e69bBB44a96E17](https://rinkeby.etherscan.io/address/0x7a49bc7356e019e57199174c28e69bbb44a96e17#code). The contract uses [Azuki's ERC721A](https://www.erc721a.org/) for better optimization and Gas fee reduction.
 
-![Deployed_Contract_Image](https://i.imgur.com/FX7yNPQ.png)
+![Deployed_Contract_Image](https://i.imgur.com/mU6N620.png)
 
 ## Starter Project
 
